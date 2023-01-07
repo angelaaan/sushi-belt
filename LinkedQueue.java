@@ -1,4 +1,10 @@
+/* Name : Angela Nguyen
+ * ICS4U
+ * 2023/01/06
+ * This program is the linked queue for the sushi node object
+ */
 public class LinkedQueue {
+    //instance variables
     private Sushi head;
     private Sushi rear;
     private int size;
@@ -21,8 +27,10 @@ public class LinkedQueue {
         size++;
     }
 
-    // Removes the data at the front of the queue and returns a
-    // reference to it. Throws an Exception if the queue is empty.
+    /*
+     * Removes the data at the front of the queue and 
+     * throws an Exception if the queue is empty.
+     */
     public String deQueue() throws Exception {
 
         //throw if thereare 0 items
@@ -47,9 +55,10 @@ public class LinkedQueue {
         return data;
     }
 
-    // Returns a reference to the data at the front of the queue.
-    // The data is not removed from the queue. Throws an
-    // Exception if the queue is empty.
+    /*
+     * Returns a reference to the data at the front of the queue.
+     * The data is not removed from the queue.
+     */
     public String first() throws Exception {
 
         //throw error if there is nothing in the list
@@ -62,10 +71,12 @@ public class LinkedQueue {
         return head.getData();
     }
 
+    /*
+     * Sorting the list by prices using bubble sort
+     */
     public void sortList()
     {
- 
-        // Node current will point to head
+        // Sushi current will point to head
         Sushi current = head;
         Sushi index = null;
  
@@ -78,13 +89,12 @@ public class LinkedQueue {
         }
         else {
             while (current != null) {
-                // Node index will point to node next to
-                // current
+                // Sushi index will point to node next to current
                 index = current.getNext();
  
                 while (index != null) {
-                    // If current node's data is greater
-                    // than index's node data, swap the data
+                    // If current sushi's price is greater
+                    // than index's sushi's price, swap the data
                     // between them
                     if (current.getPrice() > index.getPrice()) {
                         tempName = current.getName();
@@ -99,7 +109,7 @@ public class LinkedQueue {
                         index.setImage(tempImage);
                         index.setPrice(tempPrice);
                     }
- 
+                    
                     index = index.getNext();
                 }
                 current = current.getNext();
@@ -109,36 +119,51 @@ public class LinkedQueue {
         }
     }
 
+    /*
+     * Returns the head of the list in the Sushi type
+     */
     public Sushi getHead(){
         return head;
     }
 
-    // Returns true if this queue is empty and false otherwise.
+    /*
+     * Returns true if this queue is empty and false otherwise.
+     */
     public boolean isEmpty() {
         return (size == 0);
     }
 
-    // Returns the number of elements in this queue.
+    /*
+     * Returns the number of elements in this queue.
+     */
     public int size() {
         return size;
     }
 
+    /*
+     * Empties the queue.
+     */
     public void makeEmpty(){
         head = rear = null;
         size = 0;
     }
 
-    // Returns a string representation of this queue.
+    /*
+     * returns a toString reprsentation of the entire queue of sushi
+     * without the images and only with the sushi informations
+     */
     public String toString() {
         if (isEmpty()){
             System.out.println("this is awkward...you forgot to add sushis onto the belt..");
         }
 
+        //Declare and initialize variables
         String images = "";
         String info = "";
         Sushi current = head;
         int i = 1;
 
+        //go through the linked lists and fills a string with information
         while (current != null) {
             System.out.println(current.getImage() + "\n");
             info += "[" + i +"] - "+current.getData() + "\n";

@@ -1,4 +1,3 @@
-
 /* Name : Angela Nguyen
  * ICS4U
  * 2023/01/06
@@ -15,6 +14,7 @@ public class Main {
         LinkedQueue sushiBelt = new LinkedQueue();
         File sushiBeltFile = new File("C:\\Users\\angel\\Downloads\\SushiBelt.txt");
 
+        //colouring text codes
         String reset = "\u001B[0m";
         String yellow = "\u001B[33m";
         String blue = "\u001B[34m";
@@ -198,18 +198,19 @@ public class Main {
             } else if (choice == 6) { //See how many sushis on the belt
                 System.out.println("You have a belt size of " + sushiBelt.size() + " sushis!");
 
-            } else if (choice == 7) { //Clears the belt 
+            } else if (choice == 7) { //Clears the belt of all the sushi
                 System.out.println("Belt Emptied!"
                         + "────────────────");
 
-            } else if (choice == 8) {
+            } else if (choice == 8) { //Sorts the belts by price using bubble sort
                 System.out.println("Your belt will now be sorted by price! Here it is !!");
                 sushiBelt.sortList();
 
-            } else if (choice == 9) {
+            } else if (choice == 9) {//calls on the method
                 balance += washDishes();
 
-            } else if (choice == 11) {
+            } else if (choice == 11) {//saves game data to a file for users to continue later on
+
                 // check if file exists
                 if (!sushiBeltFile.exists()) {
                     System.out.println("File Not Found So Will Be Made");
@@ -220,12 +221,14 @@ public class Main {
                     }
                 }
 
+                //writes onto a file
                 try {
                     FileOutputStream out = new FileOutputStream(sushiBeltFile);
                     ObjectOutputStream writeSushi = new ObjectOutputStream(out);
 
                     Sushi current = sushiBelt.getHead();
 
+                    //uses object serialisation as it goes through the linked queue
                     while (current != null) {
                         writeSushi.writeObject(current);
                         current = current.getNext();
@@ -237,7 +240,8 @@ public class Main {
 
                 System.out.println("Your sushi belt has been saved! Come back and you can restore your sushis"
                         + "\nGoodbye for now user <3");
-            } else if (choice == 12) {
+
+            } else if (choice == 12) { //Leave without saving
                 choice = 11;
                 if (sushiBeltFile.exists()) {
                     sushiBeltFile.delete();
@@ -253,6 +257,7 @@ public class Main {
     }
 
     public static Sushi make(int a) {
+        //string array of images 
         String[] menu = new String[5];
         menu[0] = " ,;\'@@\';,"
                 + "\n|\',_@@_,\'|"
@@ -282,6 +287,7 @@ public class Main {
         String name = "";
         int price = 0;
 
+        //making sushi objects depending on what the user chose
         if (a == 0) {
             name = "Tekka Maki Tuna";
             price = 5;
@@ -308,9 +314,11 @@ public class Main {
         Random rand = new Random();
         Scanner in = new Scanner(System.in);
 
+        //introductions
         System.out.println("\nWELCOME BUDDY ! TO THE " +"\u001B[35m" + " KITCHEN!" + "\u001B[0m"
                 + "\nYou will wash dishes and chopsticks for money!!");
 
+        //randomizes a variable which then determines what tableware the user will be washing 
         int a = rand.nextInt(3);
         String tableware = "";
         switch (a) {
@@ -321,7 +329,7 @@ public class Main {
             case 2: tableware = "CHOPSTICKS";
                     break;
         }
-        a = rand.nextInt(10)+1;
+        a = rand.nextInt(10)+1; //randomize how many scrubs they will need to wash the dishes successfully
         System.out.println("CLEAN THESE " + tableware + " NOW!!! \n[HIT ENTER "+a+"]" );
 
         for (int i = 0 ; i < a ; i ++){
@@ -335,7 +343,7 @@ public class Main {
                 + "\n\'-----------\'`");
         }
 
-        a = rand.nextInt(90)+10;
+        a = rand.nextInt(90)+10; //randomize the award
         System.out.println("CONGRATULATIONS! YOU HAVE EARNED $" + a + "!!");
         return a;
     }
