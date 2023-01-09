@@ -330,7 +330,7 @@ public class Main {
                     break;
         }
         a = rand.nextInt(10)+1; //randomize how many scrubs they will need to wash the dishes successfully
-        System.out.println("CLEAN THESE " + tableware + " NOW!!! \n[HIT ENTER "+a+"]" );
+        System.out.println("CLEAN THESE " + tableware + " NOW!!! \n[HIT ENTER "+a+" TIMES]" );
 
         for (int i = 0 ; i < a ; i ++){
             in.nextLine();
