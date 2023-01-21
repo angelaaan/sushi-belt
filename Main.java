@@ -79,7 +79,7 @@ public class Main {
         }
 
         //Main Menu 
-        while (!(choice == 11)) {
+        while (!(choice == 10)) {
 
             System.out.println(purple + "[hit enter to view the menu]" + reset);
             in.nextLine();
@@ -209,7 +209,7 @@ public class Main {
             } else if (choice == 9) {//calls on the method
                 balance += washDishes();
 
-            } else if (choice == 11) {//saves game data to a file for users to continue later on
+            } else if (choice == 10) {//saves game data to a file for users to continue later on
 
                 // check if file exists
                 if (!sushiBeltFile.exists()) {
@@ -241,8 +241,8 @@ public class Main {
                 System.out.println("Your sushi belt has been saved! Come back and you can restore your sushis"
                         + "\nGoodbye for now user <3");
 
-            } else if (choice == 12) { //Leave without saving
-                choice = 11;
+            } else if (choice == 11) { //Leave without saving
+                choice = 10;
                 if (sushiBeltFile.exists()) {
                     sushiBeltFile.delete();
                     System.out.print("Changes have been deleted! ");

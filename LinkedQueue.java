@@ -2,11 +2,13 @@
  * ICS4U
  * 2023/01/06
  * This program is the linked queue for the sushi node object
+ * penis
  */
 public class LinkedQueue {
     //instance variables
     private Sushi head;
     private Sushi rear;
+    private int colour;
     private int size;
 
     // Creates an empty queue.
