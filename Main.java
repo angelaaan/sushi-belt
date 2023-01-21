@@ -256,6 +256,7 @@ public class Main {
 
     }
 
+    //Makes sushi objects to enqueue into the linked lists
     public static Sushi make(int a) {
         //string array of images 
         String[] menu = new String[5];
@@ -309,6 +310,7 @@ public class Main {
         return sushi;
     }
 
+    //Method that lets users play the mini game "KITCHEN" and allows them to earn money
     public static int washDishes(){
 
         Random rand = new Random();
@@ -330,7 +332,7 @@ public class Main {
                     break;
         }
         a = rand.nextInt(10)+1; //randomize how many scrubs they will need to wash the dishes successfully
-        System.out.println("CLEAN THESE " + tableware + " NOW!!! \n[HIT ENTER "+a+"]" );
+        System.out.println("CLEAN THESE " + tableware + " NOW!!! \n[HIT ENTER "+a+" TIMES]" );
 
         for (int i = 0 ; i < a ; i ++){
             in.nextLine();
